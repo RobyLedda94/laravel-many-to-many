@@ -49,6 +49,7 @@ class PostController extends Controller
         // dd($request->all());
         $form_data = $request->validated();
         // dd($form_data);
+        dd($request->all());
         $slug = Post::generateSlug($form_data['title']);
         $form_data['slug'] = $slug;
         // controllo se request ha il file cover_image
