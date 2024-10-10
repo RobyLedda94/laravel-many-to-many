@@ -49,7 +49,7 @@ class PostController extends Controller
         // dd($request->all());
         $form_data = $request->validated();
         // dd($form_data);
-        dd($request->all());
+        // dd($request->all());
         $slug = Post::generateSlug($form_data['title']);
         $form_data['slug'] = $slug;
         // controllo se request ha il file cover_image
@@ -67,6 +67,11 @@ class PostController extends Controller
         $post = new Post();
         $post->fill($form_data);
         $post->save();
+        // controllo se la richiesta ha la chiave technologies
+        if($request->has('technologies')){
+            $technologies = $request->technologies;
+           $post->technologies()->attach($technologies);
+        }
 
         return redirect()->route('admin.posts.index');
     }
