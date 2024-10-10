@@ -10,7 +10,14 @@ class Technology extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'slug'];
+
     public static function generateSlug($title){
         return Str::slug($title, '-');
+    }
+
+    // relazione many to many
+    public function posts(){
+        return $this->belongsToMany(Post::class);
     }
 }
