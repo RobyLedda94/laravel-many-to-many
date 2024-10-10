@@ -35,6 +35,18 @@
                             @endforeach
                         </select>
                     </div>
+                    <!-- tecnologie -->
+                    <div class="col-12">
+                        <label for="" class="control-label"><strong>Seleziona Tecnologia :</strong></label>
+                        <div>
+                            @foreach($technologies as $technology)
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="" name="" value="{{$technology->id}}">
+                                <label class="form-check-label" for="">{{$technology->name}}</label>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
                     <div class="form-group my-3">
                         <label for="content" class="control-label"><strong>Contenuto :</strong></label>
                         <textarea class="form-control form-control-sm w-100 textarea-sm" name="content" id="content-post" placeholder="Inserisci il contenuto" required>{{ old('content') }}</textarea>

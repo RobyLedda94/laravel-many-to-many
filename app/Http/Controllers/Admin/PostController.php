@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Post;
 use App\Models\Type;
+use App\Models\Technology;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Http\Controllers\Controller;
@@ -32,7 +33,9 @@ class PostController extends Controller
     {
         // recupero i type
         $types = Type::all();
-        return view('admin.posts.create', compact('types'));
+        // recupero le technologies
+        $technologies = Technology::all();
+        return view('admin.posts.create', compact('types', 'technologies'));
     }
 
     /**
