@@ -2,7 +2,7 @@
         <nav class="navbar navbar-expand-md">
             <div class="container-fluid">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                    <h3 class="m-0 text-white">Relazioni one to many</h3>
+                    <h3 class="m-0 text-white">Relazioni many to many</h3>
                     {{-- config('app.name', 'Laravel') --}}
                 </a>
 

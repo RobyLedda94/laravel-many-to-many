@@ -99,7 +99,7 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        // dd($request->all());
+        //  dd($request->all());
         $form_data = $request->validated();
         // verifico se e presente un immagine di copertina
         if($request->hasFile('cover_image')){
@@ -111,7 +111,7 @@ class PostController extends Controller
             $form_data['cover_image'] = $path;
         }
         // dd(Str::startsWith($post->cover_image, 'https'));
-
+        // dd(1);
         $form_data['slug'] = Post::generateSlug($form_data['title'], '-');
         $post->update($form_data);
 

@@ -28,6 +28,7 @@ class UpdatePostRequest extends FormRequest
             'title' => ['required',Rule::unique('posts')->ignore($this->post),'max:50'],
             'content' => ['required','min:10'],
             'cover_image' => ['nullable', 'image', 'max:4084'],
+            'type_id' => ['nullable', Rule::exists('types', 'id')],
             // 'slug' => 'required|max:255'
             
         ];
@@ -42,6 +43,7 @@ class UpdatePostRequest extends FormRequest
             'content.min' => 'Il contenuto deve contenere almeno 10 caratteri.',
             'cover_image.image' => 'Tipologia file immagine',
             'cover_image.max' => 'Max size 4084 kb',
+            'type_id.exists' => 'Tipologia inesistente',
             // 'slug.required' => 'Obbligatorio inserire un titolo per lo slug.',
             // 'slug.max' => 'Lo slug non può superare i 255 caratteri.',
         ];
