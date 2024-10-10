@@ -1,0 +1,38 @@
+@import '~bootstrap/scss/bootstrap';
+
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+
+header {
+    background-color: rgb(49, 109, 109);
+    height: 100px;
+
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
+}
+
+#sidebar {
+    width: 100px;
+    height: calc(100vh - 100px);
+    background-color: rgb(49, 109, 109);
+}
+
+#content {
+    width: calc(100vw - 100px);
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+
+    .textarea-sm {
+        height: 100px;
+    }
+}
+
+.card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
