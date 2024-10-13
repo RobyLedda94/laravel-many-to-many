@@ -126,6 +126,13 @@ class PostController extends Controller
         $form_data['slug'] = Post::generateSlug($form_data['title'], '-');
         $post->update($form_data);
 
+        if($request->has('technologies')){
+            $post->technologies()->sync($request->technologies);
+        }
+        else{
+            $post->technologies()->sync([]);
+        }
+
         return redirect()->route('admin.posts.index');
     }
 
