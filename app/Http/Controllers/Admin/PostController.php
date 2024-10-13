@@ -144,6 +144,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        // cancello i record nella tabella ponte relativi al post da cancellare
+        $post->technologies()->sync([]);
+
         $post->delete();
 
         return redirect()->route('admin.posts.index');
